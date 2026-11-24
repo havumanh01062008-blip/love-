@@ -1,0 +1,310 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Công chúa của tớ ❤️</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffd6e7, #ffabc9, #ffe4ed);
+}
+
+/* Khung chính */
+.container {
+    width: 90%;
+    max-width: 430px;
+    padding: 30px 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.65);
+    border-radius: 25px;
+    box-shadow: 0 10px 40px rgba(255,50,120,0.2);
+    z-index: 2;
+    position: relative;
+}
+
+.picture {
+    font-size: 75px;
+    margin-bottom: 15px;
+    animation: bounce 2s infinite;
+}
+
+h1 {
+    color: #e83e78;
+    font-size: 30px;
+    margin-bottom: 25px;
+}
+
+button {
+    border: none;
+    padding: 13px 30px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#yes {
+    background: #ff4081;
+    color: white;
+}
+
+#yes:hover {
+    transform: scale(1.15);
+}
+
+#no {
+    background: white;
+    color: #ff4081;
+}
+
+/* Phần tỏ tình */
+.result {
+    display: none;
+}
+
+.result h2 {
+    color: #e82e75;
+    font-size: 27px;
+    margin-bottom: 18px;
+    animation: heartbeat 1s infinite;
+}
+
+.result p {
+    color: #9e315d;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.love-text {
+    font-size: 18px !important;
+    font-weight: bold;
+    color: #ed347b !important;
+}
+
+.love-bear {
+    font-size: 55px;
+    margin: 15px 0;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Trái tim bay */
+.heart {
+    position: fixed;
+    bottom: -50px;
+    pointer-events: none;
+    z-index: 10;
+    animation: fly linear forwards;
+}
+
+@keyframes fly {
+    0% {
+        transform: translateY(0) rotate(0deg) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-115vh) rotate(360deg) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.12);
+    }
+}
+
+/* Chữ xuất hiện */
+.fade-in {
+    animation: fadeIn 1.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.signature {
+    color: #e83e78;
+    font-weight: bold;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Màn hình câu hỏi -->
+    <div id="question">
+
+        <div class="picture">🐻💕🐼</div>
+
+        <h1>Cậu ơi, cậu có yêu tớ hong? 💗</h1>
+
+        <div class="buttons">
+            <button id="yes">YES ❤️</button>
+            <button id="no">NO 💔</button>
+        </div>
+
+    </div>
+
+    <!-- Màn hình tỏ tình -->
+    <div class="result" id="result">
+
+        <h2>YAYYYY! ❤️</h2>
+
+        <div class="love-bear">🧸💗🧸</div>
+
+        <p class="love-text">Gửi công chúa của tớ! 🥰</p>
+
+        <p>
+            Cậu ơi, tớ không biết phải nói
+            những lời ngọt ngào như thế nào,
+            nhưng tớ thật sự rất vui vì có cậu.
+        </p>
+
+        <p>
+            Tớ không hứa sẽ mang đến cho cậu
+            một thế giới hoàn hảo, nhưng Tớ hứa
+            sẽ cố gắng để cậu luôn cảm thấy
+            được yêu thương và trân trọng.
+        </p>
+
+        <p>
+            Tớ muốn được cùng cậu chia sẻ
+            những niềm vui, nỗi buồn và
+            cả những điều bình thường nhất.
+        </p>
+
+        <div class="love-bear">💑🌷💕</div>
+
+    </div>
+
+</div>
+
+<script>
+
+// Lấy các phần tử
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+const question = document.getElementById("question");
+const result = document.getElementById("result");
+
+// Nút NO chạy trốn
+function moveNo() {
+    const maxX = window.innerWidth - noBtn.offsetWidth;
+    const maxY = window.innerHeight - noBtn.offsetHeight;
+
+    noBtn.style.position = "fixed";
+    noBtn.style.left = Math.random() * maxX + "px";
+    noBtn.style.top = Math.random() * maxY + "px";
+}
+
+noBtn.addEventListener("mouseover", moveNo);
+
+noBtn.addEventListener("touchstart", function(e) {
+    e.preventDefault();
+    moveNo();
+});
+
+// Tạo trái tim
+function createHeart() {
+
+    const heart = document.createElement("div");
+
+    const heartList = [
+        "❤️", "💗", "💕", "💖",
+        "💘", "💝", "💓", "🌷"
+    ];
+
+    heart.className = "heart";
+
+    heart.innerHTML =
+        heartList[Math.floor(Math.random() * heartList.length)];
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize =
+        (20 + Math.random() * 35) + "px";
+
+    const duration = 2 + Math.random() * 3;
+
+    heart.style.animationDuration = duration + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, duration * 1000);
+}
+
+// Bấm YES
+let heartInterval;
+
+yesBtn.addEventListener("click", function() {
+
+    // Ẩn câu hỏi
+    question.classList.add("hidden");
+
+    // Hiện lời tỏ tình
+    result.style.display = "block";
+    result.classList.add("fade-in");
+
+    // Tạo hiệu ứng trái tim bùng nổ
+    for (let i = 0; i < 100; i++) {
+        setTimeout(createHeart, i * 35);
+    }
+
+    // Trái tim tiếp tục bay
+    heartInterval = setInterval(createHeart, 180);
+
+});
+
+</script>
+
+</body>
+</html>
